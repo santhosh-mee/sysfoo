@@ -16,7 +16,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
     - name: Build Docker Image
-      run: docker build -t  ${{ secrets.DOCKERHUB_USERNAME }}/sysfoo-21mea08:latest .
+      run: docker build -t  ${{ secrets.DOCKERHUB_USERNAME }}/sysfoo-21csa54:latest .
 
     - name: Push Docker Image
-      run: docker push  ${{ secrets.DOCKERHUB_USERNAME }}/sysfoo-21mea08:latest
+      run: docker push  ${{ secrets.DOCKERHUB_USERNAME }}/sysfoo-21csa54:latest
