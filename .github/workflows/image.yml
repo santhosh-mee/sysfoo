@@ -2,21 +2,22 @@ on:
   push:
     branches:
       - master
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4  # Use the latest version of actions/checkout
 
     - name: Login to Docker Hub
-      uses: docker/login-action@v2
+      uses: docker/login-action@v3  # Update to the latest version of docker/login-action
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
     - name: Build Docker Image
-      run: docker build -t  ${{ secrets.DOCKERHUB_USERNAME }}/sysfoo-21csa54:latest .
+      run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/sysfoo-21csa54:latest .
 
     - name: Push Docker Image
-      run: docker push  ${{ secrets.DOCKERHUB_USERNAME }}/sysfoo-21csa54:latest
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/sysfoo-21csa54:latest
